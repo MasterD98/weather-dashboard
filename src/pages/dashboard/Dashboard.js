@@ -12,7 +12,6 @@ import ForecastCards from "../../components/forecastCards/ForecastCards";
 const Dashboard = () => {
   const [location, setLocation] = useState("Colombo");
   const [loading, setLoading] = useState(false);
-  const inputRef = useRef();
   const [data, setData] = useState(null);
 
   const [theme, setTheme] = useState(
@@ -52,8 +51,8 @@ const Dashboard = () => {
         });
   }, [location]);
 
-  const onSearch = () => {
-    const searchParam = inputRef.current.value;
+  const onSearch = (value) => {
+    const searchParam = value;
 
     if (searchParam === "") {
       popError("Location is mandatory.");
@@ -71,8 +70,15 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <ClipLoader size={50} />
+      <div
+        className={`${
+          theme === "dark" ? "bg-dark" : "bg-light"
+        } d-flex justify-content-center align-items-center vh-100`}
+      >
+        <ClipLoader
+          color={`${theme === "dark" ? "#FBFBFB" : "#332D2D"}`}
+          size={50}
+        />
       </div>
     );
   }
@@ -89,7 +95,6 @@ const Dashboard = () => {
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="py-4">
           <SearchBar
-            inputRef={inputRef}
             onSearch={onSearch}
             isDataAvailable={data !== null}
             theme={theme}
