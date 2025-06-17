@@ -3,7 +3,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div className="bg-primary container-fluid min-vh-100">
       <Dashboard />
     </div>
   );
