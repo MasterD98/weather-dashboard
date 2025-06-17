@@ -112,7 +112,13 @@ const Dashboard = () => {
                 <div className="row mb-3">
                   <div className="col text-center">
                     <h2>
-                      <span className="badge">Forecast</span>
+                      <span
+                        className={` ${
+                          theme === "dark" ? "text-white" : "text-dark"
+                        } badge`}
+                      >
+                        Forecast
+                      </span>
                     </h2>
                   </div>
                 </div>
