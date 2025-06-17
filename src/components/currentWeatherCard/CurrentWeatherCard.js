@@ -24,7 +24,9 @@ const CurrentWeatherCard = ({ current, theme }) => {
           <div className="row text-center">
             <div className="col-6 col-md-3 mb-2">
               <strong>Temperature</strong>
-              <div>{current.temp_c}°C</div>
+              <div>
+                {current.temp_c}°C / {current.temp_f}°F
+              </div>
             </div>
             <div className="col-6 col-md-3 mb-2">
               <strong>Humidity</strong>

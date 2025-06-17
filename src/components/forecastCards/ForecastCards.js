@@ -24,7 +24,9 @@ const ForecastCards = ({ forecast, theme }) => {
                 <small>{forecast.day.condition.text}</small>
               </div>
               <br />
-              <div>{forecast.day.avgtemp_c}°C</div>
+              <div>
+                {forecast.day.avgtemp_c}°C / {forecast.day.avgtemp_f}°F
+              </div>
               <small>Humidity: {forecast.day.avghumidity}%</small>
               <br />
               <small>Wind (Max) : {forecast.day.maxwind_kph}km/h</small>
