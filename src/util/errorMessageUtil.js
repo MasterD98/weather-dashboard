@@ -1,14 +1,12 @@
 import Swal from "sweetalert2";
 
 export const popError = (message) => {
+  const theme = localStorage.getItem("theme") || "light";
   Swal.fire({
     icon: "error",
     text: message,
-    background: "#2c313c",
+    background: theme === "dark" ? "#332D2D" : "#FBFBFB",
     confirmButtonColor: "#0d6efd",
-    color: "#ffffff",
-    customClass: {
-      popup: "border rounded",
-    },
+    color: theme === "dark" ? "#ffffff" : "#000000",
   });
 };
