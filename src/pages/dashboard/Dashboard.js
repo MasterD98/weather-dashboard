@@ -85,7 +85,7 @@ const Dashboard = () => {
           : "bg-light container-fluid text-dark min-vh-100"
       }
     >
-      <div className="container py-4">
+      <div>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <div className="py-4">
           <SearchBar
