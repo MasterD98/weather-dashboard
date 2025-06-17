@@ -7,17 +7,17 @@ import { popError } from "../../util/errorMessageUtil";
 const Dashboard = () => {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const [city, setCity] = useState("Colombo");
+  const [location, setLocation] = useState("Colombo");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef();
   const [data, setData] = useState(null);
 
   useEffect(() => {
     setLoading(true);
-    city &&
+    location &&
       axios
         .get(
-          `${process.env.REACT_APP_BASE_URL}/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${city}&days=12`
+          `${process.env.REACT_APP_BASE_URL}/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&days=12`
         )
         .then((res) => {
           setData(res.data);
@@ -28,32 +28,32 @@ const Dashboard = () => {
           setLoading(false);
 
           if (res.status === 400) {
-            popError("City name is not found.");
+            popError("Location is not found.");
             return;
           }
 
-          if (res.status === 401 || res.status === 500) {
+          if (res.status === 401 || res.status === 403 || res.status === 500) {
             popError("System error.");
             return;
           }
         });
-  }, [city]);
+  }, [location]);
 
   const onSearch = () => {
     const searchParam = inputRef.current.value;
 
     if (searchParam === "") {
-      popError("City name is mandatory.");
+      popError("Location is mandatory.");
       return;
     }
 
     const isValid = /^[A-Za-z\s]+$/.test(searchParam);
 
     if (!isValid) {
-      popError("City name must only include letters.");
+      popError("Location must only include letters.");
       return;
     }
-    setCity(searchParam);
+    setLocation(searchParam);
   };
 
   if (loading) {
@@ -79,7 +79,7 @@ const Dashboard = () => {
               <i className="fas fa-search"></i>
             </button>
           </div>
-          {!data && <p>Please enter valid city name</p>}
+          {!data && <p>Please enter valid location</p>}
         </div>
       </div>
 
