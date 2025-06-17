@@ -11,7 +11,7 @@ const SearchBar = ({ onSearch, isDataAvailable, theme }) => {
 
     try {
       const res = await axios.get(
-        `https://api.weatherapi.com/v1/search.json?key=${process.env.REACT_APP_API_KEY}&q=${q}`
+        `${process.env.REACT_APP_BASE_URL}/v1/search.json?key=${process.env.REACT_APP_API_KEY}&q=${q}`
       );
       setSuggestions(res.data);
     } catch (err) {
