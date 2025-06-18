@@ -1,10 +1,18 @@
 import React from "react";
+import "./ThemeToggle.css";
 
 const ThemeToggle = ({ theme, toggleTheme }) => {
   return (
-    <button className="btn btn-secondary m-3" onClick={toggleTheme}>
-      Switch to {theme === "dark" ? "Light" : "Dark"} Mode
-    </button>
+    <div className="theme-toggle p-2">
+      <label className="switch">
+        <input
+          type="checkbox"
+          checked={theme === "dark"}
+          onChange={toggleTheme}
+        />
+        <span className="slider">{theme === "dark" ? "🌙" : "☀️"}</span>
+      </label>
+    </div>
   );
 };
 
