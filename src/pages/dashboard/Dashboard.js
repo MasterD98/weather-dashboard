@@ -102,7 +102,7 @@ const Dashboard = () => {
           />
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
-        <div className="py-4">
+        <div>
           <SearchBar
             onSearch={onSearch}
             isDataAvailable={data !== null}

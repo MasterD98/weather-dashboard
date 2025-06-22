@@ -9,6 +9,7 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
           type="checkbox"
           checked={theme === "dark"}
           onChange={toggleTheme}
+          title="Toggle darkmode"
         />
         <span className="slider">{theme === "dark" ? "🌙" : "☀️"}</span>
       </label>

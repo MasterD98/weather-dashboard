@@ -1,0 +1,10 @@
+.location-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { popError } from "../../util/errorMessageUtil";
+import "./GetLocation.css";
 
 const GetLocation = ({ setLocation, setLoading, theme }) => {
   const handleGetMyLocation = () => {
@@ -24,14 +25,18 @@ const GetLocation = ({ setLocation, setLoading, theme }) => {
   };
 
   return (
-    <button
-      className={`btn ${
-        theme === "dark" ? "btn-outline-light" : "btn-outline-dark"
-      }`}
-      onClick={handleGetMyLocation}
-    >
-      𖦏
-    </button>
+    <label className="p-2">
+      <button
+        className={`btn ${
+          theme === "dark" ? "text-white" : "text-dark"
+        } location-btn p-2`}
+        onClick={handleGetMyLocation}
+        title="Use My Location"
+        style={{ backgroundColor: theme === "dark" ? "#333" : "#ccc" }}
+      >
+        𖦏
+      </button>
+    </label>
   );
 };
 
