@@ -8,6 +8,7 @@ import SearchBar from "../../components/searchBar/SearchBar";
 import LocationCard from "../../components/locationCard/LocationCard";
 import CurrentWeatherCard from "../../components/currentWeatherCard/CurrentWeatherCard";
 import ForecastCards from "../../components/forecastCards/ForecastCards";
+import GetLocation from "../../components/getLocation/GetLocation";
 
 const Dashboard = () => {
   const [location, setLocation] = useState("Colombo");
@@ -92,7 +93,15 @@ const Dashboard = () => {
       }
     >
       <div>
-        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        <div className="d-flex justify-content-between">
+          <GetLocation
+            className="py-2"
+            setLocation={setLocation}
+            setLoading={setLoading}
+            theme={theme}
+          />
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        </div>
         <div className="py-4">
           <SearchBar
             onSearch={onSearch}
