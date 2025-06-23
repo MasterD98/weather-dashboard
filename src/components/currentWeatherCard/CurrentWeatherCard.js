@@ -18,7 +18,7 @@ const CurrentWeatherCard = ({ current, theme, location }) => {
               </small>
             </div>
 
-            <div className="d-flex flex-column align-items-center mb-3">
+            <div className="d-flex flex-column align-items-center m-3">
               <img
                 src={current.condition.icon}
                 alt={current.condition.text}
