@@ -22,7 +22,7 @@ const GlobeView = ({ location, theme }) => {
       },
     ]);
     globeEl.current?.pointOfView(
-      { lat: location.lat, lng: location.lon, altitude: 0.75 },
+      { lat: location.lat, lng: location.lon, altitude: 1.5 },
       2000
     );
   }, [location]);
@@ -67,7 +67,7 @@ const GlobeView = ({ location, theme }) => {
             pointAltitude={0}
             pointRadius="size"
             pointLabel="label"
-            width={450}
+            width={460}
             height={240}
             atmosphereColor="rgba(0,0,0,0)"
             atmosphereAltitude={0}
