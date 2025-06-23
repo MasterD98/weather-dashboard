@@ -28,6 +28,10 @@ const GlobeView = ({ location, theme }) => {
   }, [location]);
 
   useEffect(() => {
+    if (globeEl.current) {
+      globeEl.current.controls().enableZoom = false;
+    }
+
     const interval = setInterval(() => {
       setMarkers((prev) =>
         prev.map((m) => ({
