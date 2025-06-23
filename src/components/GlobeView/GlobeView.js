@@ -67,9 +67,9 @@ const GlobeView = ({ location, theme }) => {
             pointAltitude={0}
             pointRadius="size"
             pointLabel="label"
-            width={475}
+            width={450}
             height={240}
-            atmosphereColor="rgba(0,0,0,0)" // Transparent color
+            atmosphereColor="rgba(0,0,0,0)"
             atmosphereAltitude={0}
           />
         </div>
