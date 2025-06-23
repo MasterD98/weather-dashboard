@@ -9,6 +9,7 @@ import LocationCard from "../../components/locationCard/LocationCard";
 import CurrentWeatherCard from "../../components/currentWeatherCard/CurrentWeatherCard";
 import ForecastCards from "../../components/forecastCards/ForecastCards";
 import GetLocation from "../../components/getLocation/GetLocation";
+import GlobeView from "../../components/GlobeView/GlobeView";
 
 const Dashboard = () => {
   const [location, setLocation] = useState("Colombo");
@@ -16,7 +17,7 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
 
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
+    () => localStorage.getItem("theme") || "dark"
   );
 
   const toggleTheme = () => {
@@ -117,9 +118,16 @@ const Dashboard = () => {
 
           {data && (
             <>
-              <div className="row align-items-stretch g-3 mb-4">
-                <LocationCard location={data.location} theme={theme} />
-                <CurrentWeatherCard current={data.current} theme={theme} />
+              <div className="row align-items-stretch mb-4 g-3">
+                <div className="col-12 col-lg-6">
+                  <CurrentWeatherCard current={data.current} theme={theme} />
+                </div>
+                <div className="col-12 col-lg-3">
+                  <LocationCard location={data.location} theme={theme} />
+                </div>
+                <div className="col-12 col-lg-3">
+                  <GlobeView location={data.location} theme={theme} />
+                </div>
               </div>
 
               <div>

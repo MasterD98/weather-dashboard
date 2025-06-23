@@ -1,6 +1,6 @@
 import axios from "axios";
 import debounce from "lodash.debounce";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const SearchBar = ({ onSearch, isDataAvailable, theme }) => {
   const [query, setQuery] = useState("");
@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch, isDataAvailable, theme }) => {
 
   useEffect(() => {
     fetchSuggestions(query);
-  }, [query]);
+  }, [query, fetchSuggestions]);
 
   return (
     <div className="row mb-4 justify-content-center">
