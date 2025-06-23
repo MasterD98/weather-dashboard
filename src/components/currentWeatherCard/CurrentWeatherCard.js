@@ -1,6 +1,6 @@
 import React from "react";
 
-const CurrentWeatherCard = ({ current, theme }) => {
+const CurrentWeatherCard = ({ current, theme, location }) => {
   return (
     <div>
       <div
@@ -11,7 +11,13 @@ const CurrentWeatherCard = ({ current, theme }) => {
       >
         <div className="card-body d-flex flex-column justify-content-center">
           <div className="d-flex flex-column">
-            <h5 className="card-title text-center">Current Weather</h5>
+            <div className="d-flex flex-column align-items-center">
+              <h5 className="card-title text-center">{location.name}</h5>
+              <small>
+                {location.region}, {location.country}
+              </small>
+            </div>
+
             <div className="d-flex flex-column align-items-center mb-3">
               <img
                 src={current.condition.icon}

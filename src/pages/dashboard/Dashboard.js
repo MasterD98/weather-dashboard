@@ -5,7 +5,6 @@ import { ClipLoader } from "react-spinners";
 import { popError } from "../../util/errorMessageUtil";
 import ThemeToggle from "../../components/themeToggle/ThemeToggle";
 import SearchBar from "../../components/searchBar/SearchBar";
-import LocationCard from "../../components/locationCard/LocationCard";
 import CurrentWeatherCard from "../../components/currentWeatherCard/CurrentWeatherCard";
 import ForecastCards from "../../components/forecastCards/ForecastCards";
 import GetLocation from "../../components/getLocation/GetLocation";
@@ -119,11 +118,12 @@ const Dashboard = () => {
           {data && (
             <>
               <div className="row align-items-stretch mb-4 g-3">
-                <div className="col-12 col-lg-6">
-                  <CurrentWeatherCard current={data.current} theme={theme} />
-                </div>
-                <div className="col-12 col-lg-3">
-                  <LocationCard location={data.location} theme={theme} />
+                <div className="col-12 col-lg-9">
+                  <CurrentWeatherCard
+                    current={data.current}
+                    theme={theme}
+                    location={data.location}
+                  />
                 </div>
                 <div className="col-12 col-lg-3">
                   <GlobeView location={data.location} theme={theme} />
